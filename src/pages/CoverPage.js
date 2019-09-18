@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Container, Row } from 'reactstrap';
-import "../styles/cover.css";
+// import "../styles/cover.css";
 
 class CoverPage extends Component {
   render() {
