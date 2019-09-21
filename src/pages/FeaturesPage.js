@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Container, Row } from 'reactstrap';
-import "../styles/carousel.css";
+//  import "../styles/carousel.css";
 
 class FeaturesPage extends Component {
   render() {
