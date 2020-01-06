@@ -4,6 +4,7 @@ import { Route, IndexRoute } from 'react-router';
 import App from './components/App.js';
 import FeaturesPage from './pages/FeaturesPage.js';
 import CoverPage from './pages/CoverPage.js';
+import CarouselPage from './pages/CarouselPage.js';
 
 
 export default (
@@ -12,6 +13,7 @@ export default (
       <IndexRoute component={FeaturesPage} />
       <Route path="/feature" component={FeaturesPage} />
       <Route path="/cover" component={CoverPage} />
+      <Route path="/carousel" component={CarouselPage} />
 
   </Route>
 );
