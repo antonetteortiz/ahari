@@ -18,6 +18,7 @@ export default (
       <Route path="/carousel" component={CarouselPage} />
       <Route path="/cover2" component={Cover2Page} />
       <Route path="/vision" component={VisionPage} />
+      <Route path="/home/:section" component={Cover2Page} />
 
   </Route>
 );

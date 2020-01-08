@@ -1,0 +1,15 @@
+[local]
+127.0.0.1
+
+[local:vars]
+ansible_connection=local
+
+[test]
+test.aharinannies.com
+
+[production]
+aharinannies.com
+
+[production:vars]
+ansible_connection=ssh
+ansible_ssh_user={{remote_user}}

@@ -1,0 +1,33 @@
+---
+
+- hosts: '{{host}}'
+  become: True
+  vars_prompt:
+    - name: "remote_user"
+      prompt: "what is username on the server?"
+
+
+  vars:
+    app_name: ahari
+    repo_url: git@gitlab.com:leapingchris/ahari.git
+    repo_remote: origin
+    repo_branch: master
+    apps_dir: /home/chris/
+    public_keypath: /home/chris/.ssh/id_rsa
+
+
+  tasks:
+    - name: deploy code from repository
+      action: git repo={{repo_url}}
+                dest={{apps_dir}}/{{app_name}}/
+                remote={{repo_remote}}
+                version={{repo_branch}}
+                accept_hostkey=True
+                key_file={{public_keypath}}
+                force=yes
+
+    - name: fix ownership
+      action: file recurse=yes owner=chris group=www-data path={{apps_dir}}/{{app_name}}
+
+    - name: reload nginx
+      action: service name=nginx state=reloaded
