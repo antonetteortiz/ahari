@@ -2,8 +2,41 @@
 //  @import '../../node_modules/bootstrap/scss/variables';
 //$primary: #CAA035;
 // scheme1 - https://coolors.co/19535f-0b7a75-7b2d26-efb4ac-f0f3f5
-$primary:   #f1d4d3; // #efb4ac;
+
+//  new scheme is https://coolors.co/19535f-f6c253-f0f3f5-21aaba-feb9b4
+// mapped to green gold ahariGrey teal and blush
+
+//  $primary:   #f1d4d3; // #efb4ac;
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+$primary:   #feb9b4;
 $secondary: #d8d8d8;
+$teal:      #21aaba;
+
+
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark,
+    //  "medium":     $medium,
+    "green":      #19535f,
+    "gold":       #f6c253,
+    "ahariGrey":  #f0f3f5,
+    "teal":       $teal,
+    "blush":      #feb9b4
+  ),
+  $theme-colors
+);
+
+$link-color: $teal;
+
+
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
