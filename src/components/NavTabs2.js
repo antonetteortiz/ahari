@@ -6,6 +6,7 @@ import { Col, Collapse, Container,
   Navbar,
   NavbarToggler,
   NavbarBrand,
+  //  NavbarText,
   Nav,
   NavItem,
   NavLink,
@@ -19,12 +20,10 @@ import classnames from 'classnames';
 
 class NavTabs extends Component {
 
-
-  render() {
+  old(){
     const { section } = this.props;
 
-    return (
-
+      return (
         <header className="masthead mb-5 fixed-top pb-2 bg-white">
           <div className="inner">
             <h3 className="masthead-brand text-blush">Ahari</h3>
@@ -36,6 +35,46 @@ class NavTabs extends Component {
             </nav>
           </div>
         </header>
+      );
+  }
+  render() {
+    const { section } = this.props;
+    const toggle = null;
+    const isOpen = null;
+
+    return (
+      <Navbar color="light" light expand="md">
+             <NavbarBrand href="/">reactstrap</NavbarBrand>
+             <NavbarToggler onClick={toggle} />
+             <Collapse isOpen={isOpen} navbar>
+               <Nav className="mr-auto" navbar>
+                 <NavItem>
+                   <NavLink href="/components/">Components</NavLink>
+                 </NavItem>
+                 <NavItem>
+                   <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                 </NavItem>
+                 <UncontrolledDropdown nav inNavbar>
+                   <DropdownToggle nav caret>
+                     Options
+                   </DropdownToggle>
+                   <DropdownMenu right>
+                     <DropdownItem>
+                       Option 1
+                     </DropdownItem>
+                     <DropdownItem>
+                       Option 2
+                     </DropdownItem>
+                     <DropdownItem divider />
+                     <DropdownItem>
+                       Reset
+                     </DropdownItem>
+                   </DropdownMenu>
+                 </UncontrolledDropdown>
+               </Nav>
+             </Collapse>
+           </Navbar>
+
 
     );
   }
