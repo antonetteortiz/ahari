@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button,
-  Card, CardBody, CardImg, CardText, CardTitle,
+  Card, CardBody, CardDeck, CardFooter, CardImg, CardText, CardTitle,
   Col, Collapse, Container,
   DropdownToggle,
   DropdownMenu,
@@ -53,7 +53,7 @@ class CoverPage extends Component {
       <span>
       <Container>
           <Row>
-            <Col className='col-md-10 offset-md-2'>
+            <Col className='d-flex justify-content-center'>
               <NavTabs section={section} />
             </Col>
           </Row>
@@ -62,8 +62,8 @@ class CoverPage extends Component {
         <HomeSection/>
       </Jumbotron>
       <Container>
-          <Row className='p-5'>
-            <Col className='col-md-10 offset-md-2'>
+          <Row className='pt-5'>
+            <Col className='d-flex justify-content-center'>
                 <Container>
                 <p className='lead text-green'>
                   At Ahari we provide a personal, secure and devoted agency rooted in face-to-face relationships. Our passion is to be devoted to the families, children and nannies. We pride ourselves on making suitable matches and connections. Matches will be based on expectations, wants and desires set by both family and nannies. Each situation will be handled professionally with the utmost care, thoughtfulness and dedication.
@@ -72,32 +72,36 @@ class CoverPage extends Component {
             </Col>
           </Row>
           <Row className='p-5'>
-            <Col className='col-md-5 offset-md-2'>
-            <Card>
-              <CardImg top width="100%" src={findAnannyPic} alt="Card image cap" />
-              <CardBody>
-                <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-                <Button color='teal'>Find a Nanny</Button>
-              </CardBody>
-            </Card>
-            </Col>
-            <Col className='col-md-5'>
-            <Card>
-              <CardImg top width="100%" src={beAnannyPic} alt="Card image cap" />
-              <CardBody>
-                <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-                <Button color='teal'>Be a Nanny</Button>
-              </CardBody>
-            </Card>
+            <Col className='d-flex justify-content-center'>
+                <CardDeck>
+                      <Card>
+                        <CardImg top width="100%" src={findAnannyPic} alt="Card image cap" />
+                        <CardBody>
+                          <CardText>Just breathe, we can take it from here. Our unique agency will help you find the perfect nanny to fit your family!</CardText>
+                        </CardBody>
+                        <CardFooter className='bg-white border-0'>
+                            <Button color='teal'>Find a Nanny</Button>
+                        </CardFooter>
+                      </Card>
+                      <Card>
+                        <CardImg top width="100%" src={beAnannyPic} alt="Card image cap" />
+                        <CardBody>
+                          <CardText>Nannies with a caring and loving heart. Start your journey with us!</CardText>
+                        </CardBody>
+                        <CardFooter className='bg-white border-0'>
+                          <Button color='teal'>Be a Nanny</Button>
+                        </CardFooter>
+                      </Card>
+                </CardDeck>
             </Col>
           </Row>
           <Row className='p-5'>
-            <Col className='col-md-10 offset-md-2'>
+            <Col className='d-flex justify-content-center'>
               <ContactUsSection />
             </Col>
           </Row>
           <Row className='' >
-            <Col className='col-md-10 offset-md-2'>
+            <Col className='d-flex justify-content-center'>
             <footer className="mastfoot">
               <div className="inner">
                 <p>&#169; {moment().format('YYYY')} Ahari Nannies | All Rights Reserved</p>

@@ -76,10 +76,9 @@ class ContactUsSection extends Component {
 
     return (
 
-      <main role="main" className="inner cover">
           <Card
               body
-              className='border-0'
+              className='border-0 p-5'
               color='ahariGrey'
           >
             <h3 className='text-green'>Contact Us</h3>
@@ -128,7 +127,6 @@ class ContactUsSection extends Component {
                   </FormGroup>
               </Form>
           </Card>
-      </main>
 
     );
   }
