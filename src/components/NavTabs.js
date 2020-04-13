@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Collapse, Container,
+import { Button, Col, Collapse, Container,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
@@ -26,7 +26,7 @@ class NavTabs extends Component {
 
     return (
 
-      <header className="masthead mb-auto">
+      <header className="masthead mb-auto fixed-top">
         <div className="inner d-flex justify-content-between">
           <h3 className="masthead-brand text-blush">Ahari</h3>
           <nav className="nav nav-masthead justify-content-center">
@@ -46,42 +46,44 @@ class NavTabs extends Component {
     const { section } = this.props;
 
     return (
-          <div className="d-flex justify-content-between">
-            <a href='#' style={{textDecoration: 'none'}}>
-                <h3 className="masthead-brand text-blush">
-                <ScrollableLink href='/home'>
-                  <span>Ahari</span>
-                </ScrollableLink>
-                </h3>
-            </a>
 
-            <div className='d-flex justify-content-center'>
-                <a className={classnames('nav-link', {active: section == 'mission'})} href="#">
-                  <ScrollableLink href='/mission'>
-                    <span>mission</span>
-                  </ScrollableLink>
-                </a>
-                <a className={classnames('nav-link', {active: section == 'be'})} href="#">
-                  <ScrollableLink href='/beANanny'>
-                    <span>be a nanny</span>
-                  </ScrollableLink>
-                </a>
+          <div className="fixed-top bg-white">
 
-                <a className={classnames('nav-link', {active: section == 'find'})} href="#">
-                  <ScrollableLink href='/findANanny'>
-                    <span>find a nanny</span>
-                  </ScrollableLink>
-                </a>
 
-                  <a className={classnames('nav-link', {active: section == 'contact'})}
-                      href='#'
-                  >
-                  <ScrollableLink href='#contactUs'>
-                    <span>contact us</span>
-                  </ScrollableLink>
+                  <div className='d-flex justify-content-center'>
+                  <a href='#' style={{textDecoration: 'none'}}>
+                      <h3 className="masthead-brand text-blush">
+                      <ScrollableLink href='#home'>
+                        <span>Ahari</span>
+                      </ScrollableLink>
+                      </h3>
                   </a>
+                      <Button color='link' className={classnames('nav-link', {active: section == 'mission'})}>
+                        <ScrollableLink href='#mission'>
+                          <span>mission</span>
+                        </ScrollableLink>
+                      </Button>
+                      <Button color='link' className={classnames('nav-link', {active: section == 'be'})}>
+                        <ScrollableLink href='#beANanny'>
+                          <span>be a nanny</span>
+                        </ScrollableLink>
+                      </Button>
 
-            </div>
+                      <Button color='link' className={classnames('nav-link', {active: section == 'find'})}>
+                        <ScrollableLink href='#findANanny'>
+                          <span>find a nanny</span>
+                        </ScrollableLink>
+                      </Button>
+
+                        <Button color='link' className={classnames('nav-link', {active: section == 'contact'})}
+
+                        >
+                        <ScrollableLink href='#contactUs'>
+                          <span>contact us</span>
+                        </ScrollableLink>
+                        </Button>
+
+                  </div>
           </div>
     );
   }

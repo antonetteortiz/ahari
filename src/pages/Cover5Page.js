@@ -28,12 +28,10 @@ import HomeSection from "../components/HomeSection";
 import VisionSection from "../components/VisionSection";
 import AboutSection from "../components/AboutSection";
 import MissionSection from "../components/MissionSection";
-import BeANannySection from "../components/BeANannySection";
-import FindANannySection from "../components/FindANannySection";
+import BeANannyBlurb from "../components/BeANannyBlurb";
+import FindANannyBlurb from "../components/FindANannyBlurb";
 import ContactUsSection from "../components/ContactUsSection";
 
-import findAnannyPic from "../images/african-american-father-holding-his-little-daughters-feet-african-american-father-holding-his-daughters-feet-107471075.jpg";
-import beAnannyPic from "../images/mother-children-playing-building-blocks-bedroom-93540028.jpg";
 
 class CoverPage extends Component {
 
@@ -52,9 +50,7 @@ class CoverPage extends Component {
       home: HomeSection,
       about: AboutSection,
       vision: VisionSection,
-      mission: MissionSection,
-      be: BeANannySection,
-      find: FindANannySection
+      mission: MissionSection
     }
     let Section = section ? sections[section] : HomeSection;
     return (
@@ -67,53 +63,39 @@ class CoverPage extends Component {
           </Row>
       </Container>
         <Jumbotron className='p-1'>
-          <HomeSection/>
+          <ScrollableSection hash={'#home'} title="Home" exact>
+              <HomeSection/>
+          </ScrollableSection>
         </Jumbotron>
       <Container>
           <Row className='pt-5'>
             <Col className='d-flex justify-content-center'>
+            <ScrollableSection hash={'#mission'} title="Mission" exact>
+              <span>
                     <Container>
                     <p className='lead text-green'>
                       At Ahari we provide a personal, secure and devoted agency rooted in face-to-face relationships. Our passion is to be devoted to the families, children and nannies. We pride ourselves on making suitable matches and connections. Matches will be based on expectations, wants and desires set by both family and nannies. Each situation will be handled professionally with the utmost care, thoughtfulness and dedication.
                     </p>
                     </Container>
+              </span>
+            </ScrollableSection>
             </Col>
           </Row>
           <Row className='p-5'>
             <Col className='d-flex justify-content-center'>
                 <CardDeck>
-                      <Card id='findANanny'>
-                        <CardImg top width="100%" src={findAnannyPic} alt="Card image cap" />
-                        <CardBody>
-                          <CardText>Just breathe, we can take it from here. Our unique agency will help you find the perfect nanny to fit your family!</CardText>
-                        </CardBody>
-                        <CardFooter className='bg-white border-0'>
-                            <Button color='teal'
-                              onClick={()=> this.context.router.push(`/home/find`)}
-                            >
-                              Find a Nanny
-                            </Button>
-                        </CardFooter>
-                      </Card>
-                      <Card id='beANanny'>
-                        <CardImg top width="100%" src={beAnannyPic} alt="Card image cap" />
-                        <CardBody>
-                          <CardText>Nannies with a caring and loving heart. Start your journey with us!</CardText>
-                        </CardBody>
-                        <CardFooter className='bg-white border-0'>
-                          <Button color='teal'
-                            onClick={()=> this.context.router.push(`/home/be`)}
-                          >
-                            Be a Nanny
-                          </Button>
-                        </CardFooter>
-                      </Card>
+                      <ScrollableSection hash={'#findANanny'} title="Find A Nanny" exact>
+                          <FindANannyBlurb />
+                      </ScrollableSection>
+                      <ScrollableSection hash={'#beANanny'} title="Find A Nanny" exact>
+                          <BeANannyBlurb />
+                      </ScrollableSection>
                 </CardDeck>
             </Col>
           </Row>
           <Row className='p-5'>
             <Col className='d-flex justify-content-center'>
-              <ScrollableSection hash={'contactUs'} title="contact Us">
+              <ScrollableSection hash={'#contactUs'} title="contact Us" exact>
 
                   <ContactUsSection />
 
