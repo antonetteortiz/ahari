@@ -80,6 +80,7 @@ class ContactUsSection extends Component {
               body
               className='border-0 p-5'
               color='ahariGrey'
+              id="contactUs"
           >
             <h3 className='text-green'>Contact Us</h3>
 

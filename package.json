@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fernando-msj/react-scrollable-anchor": "^0.6.2",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
@@ -12,6 +13,7 @@
     "react-dom": "^16.9.0",
     "react-router": "3.2.0",
     "react-scripts": "3.1.1",
+    "react-scrollable-url": "^1.5.1",
     "reactstrap": "^8.0.1",
     "socket.io-client": "^2.3.0"
   },

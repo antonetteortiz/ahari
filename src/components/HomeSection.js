@@ -96,7 +96,7 @@ class HomeSection extends Component {
 
     return (
 
-      <main role="main" className="inner cover">
+      <main id='home' role="main" className="inner cover">
           <Carousel
           activeIndex={activeIndex}
           next={next}

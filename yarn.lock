@@ -986,6 +986,14 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-9.0.1.tgz#c27b391d8457d1e893f1eddeaf5e5412d12ffbb5"
   integrity sha512-6It2EVfGskxZCQhuykrfnALg7oVeiI6KclWSmGDqB0AiInVrTGB9Jp9i4/Ad21u9Jde/voVQz6eFX/eSg/UsPA==
 
+"@fernando-msj/react-scrollable-anchor@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@fernando-msj/react-scrollable-anchor/-/react-scrollable-anchor-0.6.2.tgz#f7b063c0a1f5ef618cbd04b6fcdcd371d9f70633"
+  integrity sha512-yhU1nfedeKJnIhmn6MEXSta55U7TUpZKX+RVaZ421XrJPRAF9Z5riEjy/tg0g5pzG2ikBqMHF/oiXsxQzV/Dzg==
+  dependencies:
+    jump.js "1.0.2"
+    prop-types "^15.5.10"
+
 "@hapi/address@2.x.x":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.1.tgz#61395b5ed94c4cb19c2dc4c85969cff3d40d583f"
@@ -6349,6 +6357,11 @@ jsx-ast-utils@^2.1.0, jsx-ast-utils@^2.2.1:
     array-includes "^3.0.3"
     object.assign "^4.1.0"
 
+jump.js@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/jump.js/-/jump.js-1.0.2.tgz#e0641b47f40a38f2139c25fda0500bf28e43015a"
+  integrity sha1-4GQbR/QKOPITnCX9oFAL8o5DAVo=
+
 killable@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
@@ -8612,7 +8625,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
 
-prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -8942,6 +8955,13 @@ react-scripts@3.1.1:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.0.7"
+
+react-scrollable-url@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/react-scrollable-url/-/react-scrollable-url-1.5.1.tgz#47811a5972d723db96b605134f236aa92459198a"
+  integrity sha512-qRFzSUXjK03GMv3soii3uxx4k5ZhIKXy7MMqQlysk92VFWP24U+zmSzJrpvMOZ4yTRY/T2uQUS8yw8tai64SVQ==
+  dependencies:
+    prop-types "^15.6.2"
 
 react-transition-group@^2.3.1:
   version "2.9.0"

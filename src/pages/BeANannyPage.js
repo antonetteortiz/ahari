@@ -17,8 +17,7 @@ import { Button,
   UncontrolledDropdown
 
  } from 'reactstrap';
-//  import ScrollableAnchor, { configureAnchors } from '@fernando-msj/react-scrollable-anchor'
-import ScrollableSection, { ScrollableLink } from 'react-scrollable-url';
+import ScrollableAnchor from 'react-scrollable-anchor'
 import "../styles/index.scss";
 
 import moment from 'moment';
@@ -35,17 +34,14 @@ import ContactUsSection from "../components/ContactUsSection";
 import findAnannyPic from "../images/african-american-father-holding-his-little-daughters-feet-african-american-father-holding-his-daughters-feet-107471075.jpg";
 import beAnannyPic from "../images/mother-children-playing-building-blocks-bedroom-93540028.jpg";
 
-class CoverPage extends Component {
+class BeANannyPage extends Component {
 
   static contextTypes = {
      router: PropTypes.object
    };
 
-  componentWillMount(){
-    //  configureAnchors({});
-  }
   render() {
-    //  console.log(this.props.params);
+    console.log(this.props.params);
 
     const { section } = this.props.params;
     let sections = {
@@ -66,58 +62,62 @@ class CoverPage extends Component {
             </Col>
           </Row>
       </Container>
+      <ScrollableAnchor id={'home'}>
         <Jumbotron className='p-1'>
           <HomeSection/>
         </Jumbotron>
+      </ScrollableAnchor>
       <Container>
           <Row className='pt-5'>
             <Col className='d-flex justify-content-center'>
-                    <Container>
-                    <p className='lead text-green'>
-                      At Ahari we provide a personal, secure and devoted agency rooted in face-to-face relationships. Our passion is to be devoted to the families, children and nannies. We pride ourselves on making suitable matches and connections. Matches will be based on expectations, wants and desires set by both family and nannies. Each situation will be handled professionally with the utmost care, thoughtfulness and dedication.
-                    </p>
-                    </Container>
+                <Container>
+                <p className='lead text-green'>
+                  At Ahari we provide a personal, secure and devoted agency rooted in face-to-face relationships. Our passion is to be devoted to the families, children and nannies. We pride ourselves on making suitable matches and connections. Matches will be based on expectations, wants and desires set by both family and nannies. Each situation will be handled professionally with the utmost care, thoughtfulness and dedication.
+                </p>
+                </Container>
             </Col>
           </Row>
           <Row className='p-5'>
             <Col className='d-flex justify-content-center'>
                 <CardDeck>
-                      <Card id='findANanny'>
-                        <CardImg top width="100%" src={findAnannyPic} alt="Card image cap" />
-                        <CardBody>
-                          <CardText>Just breathe, we can take it from here. Our unique agency will help you find the perfect nanny to fit your family!</CardText>
-                        </CardBody>
-                        <CardFooter className='bg-white border-0'>
+                      <ScrollableAnchor id={'findANanny'}>
+                        <Card>
+                          <CardImg top width="100%" src={findAnannyPic} alt="Card image cap" />
+                          <CardBody>
+                            <CardText>Just breathe, we can take it from here. Our unique agency will help you find the perfect nanny to fit your family!</CardText>
+                          </CardBody>
+                          <CardFooter className='bg-white border-0'>
+                              <Button color='teal'
+                                onClick={()=> this.context.router.push(`/home/find`)}
+                              >
+                                Find a Nanny
+                              </Button>
+                          </CardFooter>
+                        </Card>
+                      </ScrollableAnchor>
+                      <ScrollableAnchor id={'beANanny'}>
+                        <Card>
+                          <CardImg top width="100%" src={beAnannyPic} alt="Card image cap" />
+                          <CardBody>
+                            <CardText>Nannies with a caring and loving heart. Start your journey with us!</CardText>
+                          </CardBody>
+                          <CardFooter className='bg-white border-0'>
                             <Button color='teal'
-                              onClick={()=> this.context.router.push(`/home/find`)}
+                              onClick={()=> this.context.router.push(`/home/be`)}
                             >
-                              Find a Nanny
+                              Be a Nanny
                             </Button>
-                        </CardFooter>
-                      </Card>
-                      <Card id='beANanny'>
-                        <CardImg top width="100%" src={beAnannyPic} alt="Card image cap" />
-                        <CardBody>
-                          <CardText>Nannies with a caring and loving heart. Start your journey with us!</CardText>
-                        </CardBody>
-                        <CardFooter className='bg-white border-0'>
-                          <Button color='teal'
-                            onClick={()=> this.context.router.push(`/home/be`)}
-                          >
-                            Be a Nanny
-                          </Button>
-                        </CardFooter>
-                      </Card>
+                          </CardFooter>
+                        </Card>
+                      </ScrollableAnchor>
                 </CardDeck>
             </Col>
           </Row>
           <Row className='p-5'>
             <Col className='d-flex justify-content-center'>
-              <ScrollableSection hash={'contactUs'} title="contact Us">
-
+              <ScrollableAnchor id={'contactUs'}>
                   <ContactUsSection />
-
-              </ScrollableSection>
+              </ScrollableAnchor>
             </Col>
           </Row>
           <Row className='' >
