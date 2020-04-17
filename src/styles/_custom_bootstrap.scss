@@ -4,6 +4,8 @@
 // scheme1 - https://coolors.co/19535f-0b7a75-7b2d26-efb4ac-f0f3f5
 
 //  new scheme is https://coolors.co/19535f-f6c253-f0f3f5-21aaba-feb9b4
+
+// new scheme
 // mapped to green gold ahariGrey teal and blush
 
 //  $primary:   #f1d4d3; // #efb4ac;
@@ -28,8 +30,14 @@ $theme-colors: map-merge(
     "green":      #19535f,
     "gold":       #f6c253,
     "ahariGrey":  #f0f3f5,
+    "ahariGreyn": #f6f6ea,
     "teal":       $teal,
-    "blush":      #feb9b4
+    "blush":      #feb9b4,
+    "starBurst":   #e899af,
+    "schoolGyal": #7c2b25,
+    "plum":       #9F4068,
+    "midnight":   #0d2c33,
+    "terracotta": #db8e71
   ),
   $theme-colors
 );

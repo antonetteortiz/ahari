@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
  Alert, Button, Card, CardBody, CardFooter, CardImg, CardText
 } from 'reactstrap';
@@ -7,7 +8,9 @@ import findAnannyPic from "../images/african-american-father-holding-his-little-
 
 class FindANannyBlurb extends Component {
 
-
+  static contextTypes = {
+     router: PropTypes.object
+   };
 
   render() {
 
@@ -20,7 +23,7 @@ class FindANannyBlurb extends Component {
         </CardBody>
         <CardFooter className='bg-white border-0'>
             <Button color='teal'
-              onClick={()=> this.context.router.push(`/home/find`)}
+              onClick={()=> this.context.router.push(`/find`)}
             >
               Find a Nanny
             </Button>

@@ -23,15 +23,15 @@ import "../styles/index.scss";
 
 import moment from 'moment';
 
-import NavTabs from "../components/BeANanny/Tabs";
-import NannyForm from "../components/BeANanny/Form";
+import NavTabs from "../components/FindANanny/Tabs";
+import NannyForm from "../components/FindANanny/Form";
 
 import findAnannyPic from "../images/african-american-father-holding-his-little-daughters-feet-african-american-father-holding-his-daughters-feet-107471075.jpg";
 import beAnannyPic from "../images/mother-children-playing-building-blocks-bedroom-93540028.jpg";
 
 import { FaSquare } from 'react-icons/fa';
 
-export default class BeANannyPage extends Component {
+export default class FindANannyPage extends Component {
 
   static contextTypes = {
      router: PropTypes.object
@@ -50,32 +50,24 @@ export default class BeANannyPage extends Component {
           </Row>
       </Container>
 
-      <Jumbotron className='p-5 m-0 bg-ahariGreyn' fluid>
+      <Jumbotron className='p-0 m-0 bg-white' fluid>
         <ScrollableSection hash={'#why'} title="Why Work With Us?" exact>
             <span>
-            <Container>
-                  <h1 className='text-green'>
-                      Why Work With Us?
-                  </h1>
-                  <p className='lead text-green'>
-                      In order to secure a great job, you need an agency. And no agency does it like Ahari! We don’t just pick families simply because they applied, we have a strict application process for the families, so you can be sure that the families working with our agency are safe and have been properly vetted.
-                  </p>
-                  <h2 className='text-midnight'>Safety</h2>
-                  <p className='lead text-midnight'>  There are so many risks involved with searching for nanny jobs on the internet, with so many whack jobs out there pretending to be what they’re not just to hurt people you can never be too careful. You will want to avoid such unfortunate situations, which is why Ahari is the perfect agency for you! We conduct thorough research on each of our prospective families, so you can be sure that any family we assign you to has been properly vetted and is completely safe.</p>
-                  <h2 className='text-midnight'>We Put Your Interests First</h2>
-                  <p className='lead text-midnight'>Finding a family that fits your requirements perfectly is not always easy, especially when you consider the number of families in search of childcare. We have been in this industry long enough to know that if the interest of the family and the nanny does not align, the relationship will not last. One of the biggest perks of working with us is probably the protection we offer. We will be your advocate in the course of your employment; always ready to represent your interest, how cool is that? We have a placement division whose job is to help the nannies and families create a great working relationship. We will also check in occasionally after the placement to ensure that the nannies are being treated fairly. So you can rest easy knowing that we’re watching out for you.</p>
 
-
-                  <h2 className='text-midnight'>Better Pay & All Around Benefits</h2>
-                  <p className='lead text-midnight'>
-                    Our goal is to help our nannies attain their full potential. We will help you negotiate great salaries, with permanent placement.  Being a nanny can be quite lucrative as a lot of these placements come with great benefits like health insurance stipends, paid sick days, paid vacation, guaranteed hours and lots more. Ahari is here to ensure you don’t miss out on any of that.
-                  </p>
-
-                  <h2 className='text-midnight'>Stand Out</h2>
-                  <p className='lead text-midnight'>
-                    When you consider all the self-identified nannies around, you will understand the importance of having a reputable agency on your reference. Having Ahari on your resume will definitely make you stand out in an otherwise saturated industry.
-                  </p>
-            </Container>
+              <Row className=''>
+                <Col className='d-flex justify-content-start'>
+                      <Card className='border-0 p-5'>
+                        <CardBody>
+                            <h1 className='text-terracotta'>Why Work With Us?</h1>
+                            <p className='lead'>Ahari is a family-oriented agency with great family values. Our goal is to match families with the most suitable nannies and be there for both parties whenever they need us. We will continue to provide support when needed even after the match is made, we’ll be there with you every step of the way until both parties are comfortably settled in. At Ahari, we make it a point of duty to help both parties communicate better and offer assistance in any way we can.</p>
+                            <p className='lead'>We’re extremely devoted to our clients, which is part of what makes us so efficient. Our service commences as soon as we give you a formal application to fill. This will provide us with background information about your family and help us understand what you want in a nanny. Our goal is to introduce you to nannies that match your requirements, criteria and are within your price bracket. Our job is to ensure that the entire recruitment process goes smoothly.</p>
+                        </CardBody>
+                      </Card>
+                </Col>
+                <Col className='d-flex justify-content-end'>
+                <img className='img-fluid' src="https://images.pexels.com/photos/2903236/pexels-photo-2903236.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+                </Col>
+              </Row>
             </span>
         </ScrollableSection>
       </Jumbotron>
