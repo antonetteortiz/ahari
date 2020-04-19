@@ -21,11 +21,13 @@ export default class FindANannyForm extends Component {
 
   clearFields(){
     return {
-        name: '',  email: '', phone: '', hearAboutUs: '',
-        totalYearsExperience: '', hasMultiplesExperience: '',
-        hasSpecialNeedsExperience: '',  aboutYou: '',
-        interestInChildren: '', highestLevelOfEducation: '',
-        typeOfWork: '', canCommitToOneYear: '', resume: ''
+        name: '',  email: '', phone: '', address: '',
+        city: '', state: '', zip: '',
+        partnerName: '',
+        aboutFamily: '',
+        childrenNamesAndDobs: '',
+        positionType: '',
+        idealStartDate: ''
     }
   }
 
@@ -58,8 +60,9 @@ export default class FindANannyForm extends Component {
       let file = target.files[0];
       value = { Name: file.name, Content: file, ContentType: file.type };
     } else {
-      console.log(`value is ${value}`);
       value = target.value;
+      console.log(`value is ${value}`);
+
     }
 
     const { fields } = this.state;
@@ -75,18 +78,30 @@ export default class FindANannyForm extends Component {
       event.preventDefault();
       //  this.saveReview();
       const { fields } = this.state;
-      const {     name, email, phone, hearAboutUs,
-                  totalYearsExperience, hasMultiplesExperience,
-                  hasSpecialNeedsExperience,
-                  aboutYou, interestInChildren, highestLevelOfEducation,
-                  typeOfWork, canCommitToOneYear, resume } = fields;
-      //  console.log()
+      const {   name,  email, phone, address,
+        city, state, zip,
+        partnerName,
+        aboutFamily,
+        childrenNamesAndDobs,
+        positionType,
+        idealStartDate } = fields;
 
-      if(email && name && phone && hearAboutUs
-              && totalYearsExperience && hasMultiplesExperience
-              && hasSpecialNeedsExperience && aboutYou && interestInChildren && highestLevelOfEducation
-              && typeOfWork && canCommitToOneYear && resume){
-          socket.emit('nanny submits application', fields);
+        socket.emit('submit parent application', fields);
+        console.log(( name && email && phone && address &&
+          city && state && zip &&
+          aboutFamily &&
+          childrenNamesAndDobs &&
+          positionType &&
+          idealStartDate ) == true )
+
+      if(  name && email && phone && address &&
+        city && state && zip &&
+        aboutFamily &&
+        childrenNamesAndDobs &&
+        positionType &&
+        idealStartDate ){
+          console.log(`submitting`);
+          socket.emit('submit parent application', fields);
       } else {
         this.setState({error: 'please fill out all fields before sending'});
       }
@@ -96,11 +111,13 @@ export default class FindANannyForm extends Component {
 
 
   render() {
-    const { fields: { name, email, phone, hearAboutUs,
-            totalYearsExperience, hasMultiplesExperience,
-            hasSpecialNeedsExperience,
-            aboutYou, interestInChildren, highestLevelOfEducation,
-            typeOfWork, canCommitToOneYear, resume },
+    const { fields: {  name,  email, phone, address,
+                        city, state, zip,
+                        partnerName,
+                        aboutFamily,
+                        childrenNamesAndDobs,
+                        positionType,
+                        idealStartDate },
             error, sending, sent } = this.state;
 
 
@@ -116,8 +133,8 @@ export default class FindANannyForm extends Component {
               className='border-0 p-5'
               color='ahariGreyn'
           >
-            <h3 className='text-green'>Application</h3>
-            <p>Welcome to Ahari Nannies! If you are a nanny who would like to apply to register with us, please fill out the information below. </p>
+            <h3 className='text-green'>Placement</h3>
+            <p>Thank you for taking the first step in finding the perfect nanny for your family. Please take a minute to answer a couple quick questions and schedule a consultation with our team!</p>
 
               { sent ? sentAlert : null }
               { sending ? sendingAlert : null }
@@ -125,10 +142,9 @@ export default class FindANannyForm extends Component {
 
               <Form onSubmit={this.handleSubmit}>
                   <FormGroup>
-                    <Label for="">Name</Label>
+                    <Label for="">Your Name</Label>
                     <Input
                            type="text" name="name" id=""
-                           placeholder="please provide your name"
                            onChange={this.handleInputChange}
                     />
                   </FormGroup>
@@ -137,110 +153,74 @@ export default class FindANannyForm extends Component {
                     <Input
                         type="email"
                         name="email" id="exampleEmail"
-                        placeholder="please provide your email address"
                         onChange={this.handleInputChange}
                     />
                   </FormGroup>
                   <FormGroup>
-                    <Label for="exampleEmail">Telephone Number</Label>
+                    <Label for="exampleEmail">Preferred Phone Number</Label>
                     <Input
                         type="phone" name="phone" id="exampleEmail"
-                        placeholder="please provide your phone number"
                         onChange={this.handleInputChange}
                     />
                   </FormGroup>
                   <FormGroup>
-                    <Label for="exampleEmail">How did you hear about Ahari Nannies?</Label>
+                    <Label for="exampleEmail">Home Address</Label>
                     <Input
-                          type="textarea" name="hearAboutUs" id="exampleEmail"
-                          placeholder=""
+                        type="text" name="address" id="exampleEmail"
+                        onChange={this.handleInputChange}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="exampleEmail">City</Label>
+                    <Input
+                        type="text" name="city"
+                        onChange={this.handleInputChange}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="exampleEmail">State</Label>
+                    <Input
+                        type="text" name="state"
+                        onChange={this.handleInputChange}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="exampleEmail">Spouse/Partner's Name</Label>
+                    <Input
+                        type="phone" name="partnerName" id="exampleEmail"
+                        onChange={this.handleInputChange}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="exampleEmail">Tell us a little about your family</Label>
+                    <Input
+                          type="textarea" name="hearAboutUs"
+                          placeholder="Example: We are Sarah and Alex Williams and we just moved to Brooklyn from Kansas City with our twin boys. Sarah is CEO of a private label fashion company and Alex is an attorney, returning to work after being a stay-at-home mom for the past 2 years. We both enjoy running and training for marathons and we love to travel with the boys when possible!"
                           onChange={this.handleInputChange}
                     />
                   </FormGroup>
                   <FormGroup>
-                    <Label for="exampleEmail">How many years of professional childcare experience do you have?*(When answering please only consider paid work that took place over the age of 18.)</Label>
+                    <Label for="exampleEmail">Names and Birth Dates of Children</Label>
                     <Input
-                        type="text" name="totalYearsExperience" id="exampleEmail"
+                        type="textarea" name="aboutFamily" id="exampleEmail"
                         onChange={this.handleInputChange}
                     />
                   </FormGroup>
                   <FormGroup>
-                    <Label for="exampleEmail">Do you have multiples experience? Twins, Triplets, Nanny Share etc.</Label>
+                    <Label for="exampleEmail">What type of position and hours do you need? (free text)</Label>
                     <Input
-                        type="phone" name="hasMultiplesExperience" id="exampleEmail"
+                        type="textarea" name="positionType"
+                        placeholder='Example: We need a full-time nanny that can take care of the boys Monday through Friday from 8 am - 6 pm. Flexibility for occasional date nights or overnights/travel would be helpful, too. Sarah’s job requires her to travel once a week, so extra help with dinner prep on those nights will be required. We would love to have a nanny for the next 2-3 years.'
                         onChange={this.handleInputChange}
                     />
                   </FormGroup>
                   <FormGroup>
-                    <Label for="exampleEmail">Do you have special needs experience?</Label>
+                    <Label for="exampleEmail">What is your ideal start date? (date field)</Label>
                     <Input
-                        type="phone" name="hasSpecialNeedsExperience" id="exampleEmail"
+                        type="phone" name="idealStartDate" id="exampleEmail"
                         onChange={this.handleInputChange}
                     />
                   </FormGroup>
-                  <FormGroup>
-                    <Label for="exampleEmail">Tell us about you:</Label>
-                    <Input
-                          type="textarea" name="aboutYou" id="exampleEmail"
-                          placeholder={`For example, My name is Megan and I am a 33 year old middle child of six siblings from Jersey City, New Jersey. I moved to Brooklyn 10 years ago and absolutely love the Park Slope area. My favorite things are outdoor activities, reading, taking walks and visiting with my Mom and family. I graduated from the City College of New York in 2014 with a Degree in ECE (Early Childhood Education). With over 10 years experience in the childcare field I feel that I have gained excellent childcare experience with children of all ages. I simply love children and enjoy helping them learn and grow at every stage of their young lives. My strengths as a nanny are that I am very responsible, reliable and caring person. I am passionate about furthering my time in the Nanny field so that I can continue doing what I love and broadening my experiences.`}
-                          rows="10"
-                          onChange={this.handleInputChange}
-                    />
-                  </FormGroup>
-
-                  <FormGroup>
-                    <Label for="exampleEmail">What makes you interested in working with children? (Please elaborate, we want to get to know you! Feel free to tell us why you’re special, what your past families have loved about you, or the things that make you shine as a caregiver.)</Label>
-                    <Input
-                          type="textarea" name="interestInChildren" id="exampleEmail"
-
-                          rows="10"
-                          onChange={this.handleInputChange}
-                    />
-                  </FormGroup>
-                  <FormGroup>
-                    <Label for="exampleEmail">What’s your highest level of education completed? (Some High School, High School, Some College, Associate’s Degree, Bachelor’s Degree, Some Master level Coursework, Master’s Coursework, Other)</Label>
-                    <Input
-                        type="text" name="highestLevelOfEducation" id="exampleEmail"
-                        onChange={this.handleInputChange}
-                    />
-                  </FormGroup>
-                  <FormGroup>
-                    <Label for="exampleEmail">What kind of work are you looking for? (Part Time, Full Time, Temp)</Label>
-                    <Input
-                        type="text" name="typeOfWork" id="exampleEmail"
-                        onChange={this.handleInputChange}
-                    />
-                  </FormGroup>
-                  <FormGroup>
-                    <Label for="exampleEmail">Can you commit to a position for at least one year?</Label>
-                    <CustomInput
-                          type="radio"
-                          id="exampleCustomRadio"
-                          name="canCommitToOneYear"
-                          label="Yes! I’m excited to work long-term with a family."
-                          value='yes'
-                          onChange={this.handleInputChange}
-
-                    />
-                    <CustomInput
-                          type="radio"
-                          id="exampleCustomRadio2"
-                          name="canCommitToOneYear"
-                          label="No, I can’t commit to a whole year."
-                          value='no'
-                          onChange={this.handleInputChange}
-                    />
-                  </FormGroup>
-                  <FormGroup>
-                    <Label for="exampleEmail">Please submit your resume below including at least three professional references and two character references.</Label>
-                    <Input
-                        type="file" name="resume" id="exampleEmail"
-                        onChange={this.handleInputChange}
-                    />
-                  </FormGroup>
-
-
-
                   <FormGroup>
                     <Button color='teal'>Apply</Button>
                   </FormGroup>

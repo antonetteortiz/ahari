@@ -17,7 +17,8 @@
     "react-scrollable-anchor": "^0.6.1",
     "react-scrollable-url": "^1.5.1",
     "reactstrap": "^8.0.1",
-    "socket.io-client": "^2.3.0"
+    "socket.io-client": "^2.3.0",
+    "validate.js": "^0.13.1"
   },
   "scripts": {
     "start": "react-scripts start",
