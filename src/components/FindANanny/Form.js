@@ -4,6 +4,7 @@ import {
 } from 'reactstrap';
 
 import socket from "../../server";
+import validate from 'validate.js';
 
 export default class FindANannyForm extends Component {
   constructor(){
@@ -12,6 +13,7 @@ export default class FindANannyForm extends Component {
       sending: false,
       sent: false,
       error: null,
+      errors: {},
       fields: this.clearFields()
     }
 
@@ -86,25 +88,35 @@ export default class FindANannyForm extends Component {
         positionType,
         idealStartDate } = fields;
 
-        socket.emit('submit parent application', fields);
-        console.log(( name && email && phone && address &&
-          city && state && zip &&
-          aboutFamily &&
-          childrenNamesAndDobs &&
-          positionType &&
-          idealStartDate ) == true )
 
-      if(  name && email && phone && address &&
-        city && state && zip &&
-        aboutFamily &&
-        childrenNamesAndDobs &&
-        positionType &&
-        idealStartDate ){
+        let constraints = {
+          name: { presence: { allowEmpty: false } },
+          email: { presence: { allowEmpty: false }},
+          phone: { presence: { allowEmpty: false }},
+          address: { presence: { allowEmpty: false }},
+          city: { presence: { allowEmpty: false } },
+          state: { presence: { allowEmpty: false } },
+          zip: { presence: { allowEmpty: false } },
+          aboutFamily: { presence: { allowEmpty: false } },
+          childrenNamesAndDobs: { presence: { allowEmpty: false } },
+          positionType: { presence: { allowEmpty: false } },
+          idealStartDate: { presence: { allowEmpty: false } }
+        }
+
+        let errors = validate(fields, constraints);
+
+      let error;
+      if( errors == undefined ){
           console.log(`submitting`);
           socket.emit('submit parent application', fields);
+          errors = {};
       } else {
-        this.setState({error: 'please fill out all fields before sending'});
+        //  this.setState({error: `please fill out required fields before sending`, errors});
+        error = `please fill out required fields before sending`;
       }
+
+      this.setState({error, errors});
+
 
   }
 
@@ -118,7 +130,7 @@ export default class FindANannyForm extends Component {
                         childrenNamesAndDobs,
                         positionType,
                         idealStartDate },
-            error, sending, sent } = this.state;
+            errors, error, sending, sent } = this.state;
 
 
     const section = 'contact';
@@ -146,6 +158,7 @@ export default class FindANannyForm extends Component {
                     <Input
                            type="text" name="name" id=""
                            onChange={this.handleInputChange}
+                           invalid={errors.name}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -154,6 +167,7 @@ export default class FindANannyForm extends Component {
                         type="email"
                         name="email" id="exampleEmail"
                         onChange={this.handleInputChange}
+                        invalid={errors.email}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -161,6 +175,7 @@ export default class FindANannyForm extends Component {
                     <Input
                         type="phone" name="phone" id="exampleEmail"
                         onChange={this.handleInputChange}
+                        invalid={errors.phone}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -168,6 +183,7 @@ export default class FindANannyForm extends Component {
                     <Input
                         type="text" name="address" id="exampleEmail"
                         onChange={this.handleInputChange}
+                        invalid={errors.address}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -175,6 +191,7 @@ export default class FindANannyForm extends Component {
                     <Input
                         type="text" name="city"
                         onChange={this.handleInputChange}
+                        invalid={errors.city}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -182,6 +199,15 @@ export default class FindANannyForm extends Component {
                     <Input
                         type="text" name="state"
                         onChange={this.handleInputChange}
+                        invalid={errors.state}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="exampleEmail">Zip</Label>
+                    <Input
+                        type="text" name="zip"
+                        onChange={this.handleInputChange}
+                        invalid={errors.zip}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -189,21 +215,24 @@ export default class FindANannyForm extends Component {
                     <Input
                         type="phone" name="partnerName" id="exampleEmail"
                         onChange={this.handleInputChange}
+                        invalid={errors.partnerName}
                     />
                   </FormGroup>
                   <FormGroup>
                     <Label for="exampleEmail">Tell us a little about your family</Label>
                     <Input
-                          type="textarea" name="hearAboutUs"
+                          type="textarea" name="aboutFamily"
                           placeholder="Example: We are Sarah and Alex Williams and we just moved to Brooklyn from Kansas City with our twin boys. Sarah is CEO of a private label fashion company and Alex is an attorney, returning to work after being a stay-at-home mom for the past 2 years. We both enjoy running and training for marathons and we love to travel with the boys when possible!"
                           onChange={this.handleInputChange}
+                          invalid={errors.aboutFamily}
                     />
                   </FormGroup>
                   <FormGroup>
                     <Label for="exampleEmail">Names and Birth Dates of Children</Label>
                     <Input
-                        type="textarea" name="aboutFamily" id="exampleEmail"
+                        type="textarea" name="childrenNamesAndDobs" id="exampleEmail"
                         onChange={this.handleInputChange}
+                        invalid={errors.childrenNamesAndDobs}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -212,6 +241,7 @@ export default class FindANannyForm extends Component {
                         type="textarea" name="positionType"
                         placeholder='Example: We need a full-time nanny that can take care of the boys Monday through Friday from 8 am - 6 pm. Flexibility for occasional date nights or overnights/travel would be helpful, too. Sarah’s job requires her to travel once a week, so extra help with dinner prep on those nights will be required. We would love to have a nanny for the next 2-3 years.'
                         onChange={this.handleInputChange}
+                        invalid={errors.positionType}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -219,6 +249,7 @@ export default class FindANannyForm extends Component {
                     <Input
                         type="phone" name="idealStartDate" id="exampleEmail"
                         onChange={this.handleInputChange}
+                        invalid={errors.idealStartDate}
                     />
                   </FormGroup>
                   <FormGroup>

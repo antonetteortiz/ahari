@@ -4,6 +4,7 @@ import {
 } from 'reactstrap';
 
 import socket from "../../server";
+import validate from 'validate.js';
 
 export default class BeANannyForm extends Component {
   constructor(){
@@ -12,6 +13,7 @@ export default class BeANannyForm extends Component {
       sending: false,
       sent: false,
       error: null,
+      errors: {},
       fields: this.clearFields()
     }
 
@@ -56,7 +58,13 @@ export default class BeANannyForm extends Component {
 
     if(target.files){
       let file = target.files[0];
-      value = { Name: file.name, Content: file, ContentType: file.type };
+      console.dir(file.toString('base64'));
+      value = { Name: file.name,
+                //  Content: btoa(String.fromCharCode(...new Uint8Array(file))),
+                Content: file, // `data:${file.type};base64,${file.toString('base64')}`,
+                ContentType: file.type
+              };
+
     } else {
       console.log(`value is ${value}`);
       value = target.value;
@@ -82,14 +90,36 @@ export default class BeANannyForm extends Component {
                   typeOfWork, canCommitToOneYear, resume } = fields;
       //  console.log()
 
-      if(email && name && phone && hearAboutUs
-              && totalYearsExperience && hasMultiplesExperience
-              && hasSpecialNeedsExperience && aboutYou && interestInChildren && highestLevelOfEducation
-              && typeOfWork && canCommitToOneYear && resume){
-          socket.emit('nanny submits application', fields);
-      } else {
-        this.setState({error: 'please fill out all fields before sending'});
+      let constraints = {
+        name: { presence: { allowEmpty: false } },
+        email: { presence: { allowEmpty: false }},
+        phone: { presence: { allowEmpty: false }},
+        hearAboutUs: { presence: { allowEmpty: false }},
+        totalYearsExperience: { presence: { allowEmpty: false } },
+        hasMultiplesExperience: { presence: { allowEmpty: false } },
+        hasSpecialNeedsExperience: { presence: { allowEmpty: false } },
+        aboutYou: { presence: { allowEmpty: false } },
+        interestInChildren: { presence: { allowEmpty: false } },
+        highestLevelOfEducation: { presence: { allowEmpty: false } },
+        typeOfWork: { presence: { allowEmpty: false } },
+        canCommitToOneYear: { presence: { allowEmpty: false } },
+        resume: { presence: { allowEmpty: false } }
       }
+
+
+      let errors = validate(fields, constraints);
+
+      let error;
+      if( errors == undefined ){
+          console.log(`submitting`);
+          socket.emit('submit nanny application', fields);
+          errors = {};
+      } else {
+        //  this.setState({error: `please fill out required fields before sending`, errors});
+        error = `please fill out required fields before sending`;
+      }
+
+      this.setState({error, errors});
 
   }
 
@@ -101,7 +131,7 @@ export default class BeANannyForm extends Component {
             hasSpecialNeedsExperience,
             aboutYou, interestInChildren, highestLevelOfEducation,
             typeOfWork, canCommitToOneYear, resume },
-            error, sending, sent } = this.state;
+            errors, error, sending, sent } = this.state;
 
 
     const section = 'contact';
@@ -130,6 +160,8 @@ export default class BeANannyForm extends Component {
                            type="text" name="name" id=""
                            placeholder="please provide your name"
                            onChange={this.handleInputChange}
+                           invalid={errors.name}
+
                     />
                   </FormGroup>
                   <FormGroup>
@@ -139,6 +171,8 @@ export default class BeANannyForm extends Component {
                         name="email" id="exampleEmail"
                         placeholder="please provide your email address"
                         onChange={this.handleInputChange}
+                        invalid={errors.email}
+
                     />
                   </FormGroup>
                   <FormGroup>
@@ -147,6 +181,7 @@ export default class BeANannyForm extends Component {
                         type="phone" name="phone" id="exampleEmail"
                         placeholder="please provide your phone number"
                         onChange={this.handleInputChange}
+                        invalid={errors.phone}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -155,6 +190,7 @@ export default class BeANannyForm extends Component {
                           type="textarea" name="hearAboutUs" id="exampleEmail"
                           placeholder=""
                           onChange={this.handleInputChange}
+                          invalid={errors.hearAboutUs}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -162,6 +198,7 @@ export default class BeANannyForm extends Component {
                     <Input
                         type="text" name="totalYearsExperience" id="exampleEmail"
                         onChange={this.handleInputChange}
+                        invalid={errors.totalYearsExperience}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -169,6 +206,7 @@ export default class BeANannyForm extends Component {
                     <Input
                         type="phone" name="hasMultiplesExperience" id="exampleEmail"
                         onChange={this.handleInputChange}
+                        invalid={errors.hasMultiplesExperience}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -176,6 +214,7 @@ export default class BeANannyForm extends Component {
                     <Input
                         type="phone" name="hasSpecialNeedsExperience" id="exampleEmail"
                         onChange={this.handleInputChange}
+                        invalid={errors.hasSpecialNeedsExperience}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -185,6 +224,7 @@ export default class BeANannyForm extends Component {
                           placeholder={`For example, My name is Megan and I am a 33 year old middle child of six siblings from Jersey City, New Jersey. I moved to Brooklyn 10 years ago and absolutely love the Park Slope area. My favorite things are outdoor activities, reading, taking walks and visiting with my Mom and family. I graduated from the City College of New York in 2014 with a Degree in ECE (Early Childhood Education). With over 10 years experience in the childcare field I feel that I have gained excellent childcare experience with children of all ages. I simply love children and enjoy helping them learn and grow at every stage of their young lives. My strengths as a nanny are that I am very responsible, reliable and caring person. I am passionate about furthering my time in the Nanny field so that I can continue doing what I love and broadening my experiences.`}
                           rows="10"
                           onChange={this.handleInputChange}
+                          invalid={errors.aboutYou}
                     />
                   </FormGroup>
 
@@ -195,6 +235,7 @@ export default class BeANannyForm extends Component {
 
                           rows="10"
                           onChange={this.handleInputChange}
+                          invalid={errors.interestInChildren}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -202,6 +243,7 @@ export default class BeANannyForm extends Component {
                     <Input
                         type="text" name="highestLevelOfEducation" id="exampleEmail"
                         onChange={this.handleInputChange}
+                        invalid={errors.highestLevelOfEducation}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -209,6 +251,7 @@ export default class BeANannyForm extends Component {
                     <Input
                         type="text" name="typeOfWork" id="exampleEmail"
                         onChange={this.handleInputChange}
+                        invalid={errors.typeOfWork}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -220,7 +263,7 @@ export default class BeANannyForm extends Component {
                           label="Yes! I’m excited to work long-term with a family."
                           value='yes'
                           onChange={this.handleInputChange}
-
+                          invalid={errors.canCommitToOneYear}
                     />
                     <CustomInput
                           type="radio"
@@ -229,6 +272,7 @@ export default class BeANannyForm extends Component {
                           label="No, I can’t commit to a whole year."
                           value='no'
                           onChange={this.handleInputChange}
+                          invalid={errors.canCommitToOneYear}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -236,6 +280,7 @@ export default class BeANannyForm extends Component {
                     <Input
                         type="file" name="resume" id="exampleEmail"
                         onChange={this.handleInputChange}
+                        invalid={errors.resume}
                     />
                   </FormGroup>
 
