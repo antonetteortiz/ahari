@@ -61,6 +61,7 @@ export default class FindANannyForm extends Component {
     if(target.files){
       let file = target.files[0];
       value = { Name: file.name, Content: file, ContentType: file.type };
+      //  console.log(file.arrayBuffer());
     } else {
       value = target.value;
       console.log(`value is ${value}`);
