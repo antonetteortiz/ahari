@@ -7,9 +7,12 @@ import {
  CarouselCaption
 } from 'reactstrap';
 
-import pic1 from "../images/two-families-baby-carriers-walking-park-52855596.jpg"
-import pic2 from "../images/pexels-photo-3584088.jpeg"
-import pic3 from "../images/pexels-photo-935967.jpeg"
+//  import pic1 from "../images/two-families-baby-carriers-walking-park-52855596.jpg"
+//  import pic2 from "../images/pexels-photo-3584088.jpeg"
+//  import pic3 from "../images/pexels-photo-935967.jpeg"
+import pic1 from "../images/ahari-slide-1.jpg"
+import pic2 from "../images/ahari-slide-2.jpg"
+import pic3 from "../images/ahari-slide-3.jpg"
 
 class HomeSection extends Component {
   constructor(){

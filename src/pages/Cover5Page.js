@@ -55,14 +55,14 @@ class CoverPage extends Component {
     let Section = section ? sections[section] : HomeSection;
     return (
       <span>
-      <Container>
+      <Container style={{marginTop: "134px"}}>
           <Row>
             <Col className='d-flex justify-content-center'>
               <NavTabs section={section} />
             </Col>
           </Row>
       </Container>
-        <Jumbotron className='p-1'>
+        <Jumbotron className='p-0'>
           <ScrollableSection hash={'#home'} title="Home" exact>
               <HomeSection/>
           </ScrollableSection>

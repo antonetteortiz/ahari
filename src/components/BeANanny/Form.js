@@ -102,8 +102,8 @@ export default class BeANannyForm extends Component {
         interestInChildren: { presence: { allowEmpty: false } },
         highestLevelOfEducation: { presence: { allowEmpty: false } },
         typeOfWork: { presence: { allowEmpty: false } },
-        canCommitToOneYear: { presence: { allowEmpty: false } },
-        resume: { presence: { allowEmpty: false } }
+        canCommitToOneYear: { presence: { allowEmpty: false } }
+        //  resume: { presence: { allowEmpty: false } }
       }
 
 
@@ -138,7 +138,16 @@ export default class BeANannyForm extends Component {
     const sentAlert = <Alert color='blush'><b>Thanks for reaching out, we will be in touch soon!</b></Alert>
     const sendingAlert = <Alert color='blush'><b>Sending....</b></Alert>
     const errorAlert = <Alert color='blush'><b>{error}</b></Alert>
-
+    /*
+    <FormGroup>
+      <Label for="exampleEmail">Please submit your resume below including at least three professional references and two character references.</Label>
+      <Input
+          type="file" name="resume" id="exampleEmail"
+          onChange={this.handleInputChange}
+          invalid={errors.resume}
+      />
+    </FormGroup>
+    */
     return (
 
           <Card
@@ -275,16 +284,6 @@ export default class BeANannyForm extends Component {
                           invalid={errors.canCommitToOneYear}
                     />
                   </FormGroup>
-                  <FormGroup>
-                    <Label for="exampleEmail">Please submit your resume below including at least three professional references and two character references.</Label>
-                    <Input
-                        type="file" name="resume" id="exampleEmail"
-                        onChange={this.handleInputChange}
-                        invalid={errors.resume}
-                    />
-                  </FormGroup>
-
-
 
                   <FormGroup>
                     <Button color='teal'>Apply</Button>

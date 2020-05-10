@@ -28,6 +28,8 @@ import NannyForm from "../components/FindANanny/Form";
 
 import findAnannyPic from "../images/african-american-father-holding-his-little-daughters-feet-african-american-father-holding-his-daughters-feet-107471075.jpg";
 import beAnannyPic from "../images/mother-children-playing-building-blocks-bedroom-93540028.jpg";
+import pic1 from '../images/ahari-find-a-nanny.jpg';
+import pic2 from '../images/ahari-find-a-nanny-2.png';
 
 import { FaSquare } from 'react-icons/fa';
 
@@ -42,7 +44,7 @@ export default class FindANannyPage extends Component {
 
     return (
       <span>
-      <Container>
+      <Container style={{marginTop: "134px"}}>
           <Row>
             <Col className='d-flex justify-content-center'>
               <NavTabs/>
@@ -65,7 +67,7 @@ export default class FindANannyPage extends Component {
                       </Card>
                 </Col>
                 <Col className='d-flex justify-content-end'>
-                <img className='img-fluid' src="https://images.pexels.com/photos/2903236/pexels-photo-2903236.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+                <img className='img-fluid' src={pic2} />
                 </Col>
               </Row>
             </span>
@@ -79,7 +81,7 @@ export default class FindANannyPage extends Component {
 
                 <Row className=''>
                   <Col className='d-flex justify-content-start'>
-                  <img className='img-fluid' src="https://images.pexels.com/photos/2903236/pexels-photo-2903236.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+                  <img className='img-fluid' src={pic1} />
                   </Col>
                   <Col className='d-flex justify-content-end'>
                         <Card className='border-0 pt-5 pb-5'>

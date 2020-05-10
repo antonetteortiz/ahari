@@ -11,6 +11,7 @@
 //  $primary:   #f1d4d3; // #efb4ac;
 @import '../../node_modules/bootstrap/scss/functions';
 @import '../../node_modules/bootstrap/scss/variables';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Roboto&display=swap');
 $primary:   #feb9b4;
 $secondary: #d8d8d8;
 $teal:      #21aaba;
@@ -44,6 +45,8 @@ $theme-colors: map-merge(
 
 $link-color: $teal;
 
+$font-family-base: "Open Sans";
+//  $headings-font-family: "Argent Lie"
 
 
 // Import Bootstrap and its default variables

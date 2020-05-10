@@ -4,7 +4,8 @@ import {
  Alert, Button, Card, CardBody, CardFooter, CardImg, CardText
 } from 'reactstrap';
 
-import beAnannyPic from "../images/mother-children-playing-building-blocks-bedroom-93540028.jpg";
+//  import beAnannyPic from "../images/mother-children-playing-building-blocks-bedroom-93540028.jpg";
+import beAnannyPic from "../images/ahari6.jpg";
 
 class BeANannyBlurb extends Component {
 

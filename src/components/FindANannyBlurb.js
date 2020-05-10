@@ -4,7 +4,8 @@ import {
  Alert, Button, Card, CardBody, CardFooter, CardImg, CardText
 } from 'reactstrap';
 
-import findAnannyPic from "../images/african-american-father-holding-his-little-daughters-feet-african-american-father-holding-his-daughters-feet-107471075.jpg";
+//  import findAnannyPic from "../images/african-american-father-holding-his-little-daughters-feet-african-american-father-holding-his-daughters-feet-107471075.jpg";
+import findAnannyPic from "../images/ahari5.jpg";
 
 class FindANannyBlurb extends Component {
 

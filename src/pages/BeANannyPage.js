@@ -28,6 +28,7 @@ import NannyForm from "../components/BeANanny/Form";
 
 import findAnannyPic from "../images/african-american-father-holding-his-little-daughters-feet-african-american-father-holding-his-daughters-feet-107471075.jpg";
 import beAnannyPic from "../images/mother-children-playing-building-blocks-bedroom-93540028.jpg";
+import pic from "../images/ahari-be-a-nanny.jpg";
 
 import { FaSquare } from 'react-icons/fa';
 
@@ -42,7 +43,7 @@ export default class BeANannyPage extends Component {
 
     return (
       <span>
-      <Container>
+      <Container style={{marginTop: "134px"}}>
           <Row>
             <Col className='d-flex justify-content-center'>
               <NavTabs/>
@@ -87,50 +88,50 @@ export default class BeANannyPage extends Component {
 
                 <Row className=''>
                   <Col className='d-flex justify-content-start'>
-                  <img className='img-fluid' src="https://images.pexels.com/photos/2903236/pexels-photo-2903236.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+                  <img className='img-fluid' src={pic} />
                   </Col>
                   <Col className='d-flex justify-content-end'>
                         <Card className='border-0 pt-5 pb-5'>
                           <ListGroup className='border-0 '>
                             <ListGroupItem className='border-0 '>
-                                <FaSquare className='text-plum'/> &nbsp; Must genuinely love working with children
+                                <FaSquare className='text-starBurst'/> &nbsp; Must genuinely love working with children
                             </ListGroupItem>
                             <ListGroupItem className='border-0 '>
-                                <FaSquare className='text-plum' /> &nbsp; Must have spent at least 3 years providing professional childcare services (2 of which must have been spent working for a private home as a nanny)
+                                <FaSquare className='text-starBurst' /> &nbsp; Must have spent at least 3 years providing professional childcare services (2 of which must have been spent working for a private home as a nanny)
                             </ListGroupItem>
                             <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Stellar references
+                              <FaSquare className='text-starBurst' /> &nbsp; Stellar references
                             </ListGroupItem>
                             <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must be able to commit to a family for one year
-                            </ListGroupItem>
-
-                            <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must reside in New York City
-                            </ListGroupItem>
-                            <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must possess a High School Diploma or College degree, (preferably with child/psychology-related coursework)
-                            </ListGroupItem>
-                            <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must be legally qualified to work and reside in the U.S.
-                            </ListGroupItem>
-                            <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must have sound knowledge of the English Language
-                            </ListGroupItem>
-                            <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; No criminal record
-                            </ListGroupItem>
-                            <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must have first aid and CPR certification (or be willing to get the certification from your own pocket)
-                            </ListGroupItem>
-
-
-                            <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must be ready to be employed legally and paid through a payroll service
+                              <FaSquare className='text-starBurst' /> &nbsp; Must be able to commit to a family for one year
                             </ListGroupItem>
 
                             <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must not be a smoker
+                              <FaSquare className='text-starBurst' /> &nbsp; Must reside in New York City
+                            </ListGroupItem>
+                            <ListGroupItem className='border-0 '>
+                              <FaSquare className='text-starBurst' /> &nbsp; Must possess a High School Diploma or College degree, (preferably with child/psychology-related coursework)
+                            </ListGroupItem>
+                            <ListGroupItem className='border-0 '>
+                              <FaSquare className='text-starBurst' /> &nbsp; Must be legally qualified to work and reside in the U.S.
+                            </ListGroupItem>
+                            <ListGroupItem className='border-0 '>
+                              <FaSquare className='text-starBurst' /> &nbsp; Must have sound knowledge of the English Language
+                            </ListGroupItem>
+                            <ListGroupItem className='border-0 '>
+                              <FaSquare className='text-starBurst' /> &nbsp; No criminal record
+                            </ListGroupItem>
+                            <ListGroupItem className='border-0 '>
+                              <FaSquare className='text-starBurst' /> &nbsp; Must have first aid and CPR certification (or be willing to get the certification from your own pocket)
+                            </ListGroupItem>
+
+
+                            <ListGroupItem className='border-0 '>
+                              <FaSquare className='text-starBurst' /> &nbsp; Must be ready to be employed legally and paid through a payroll service
+                            </ListGroupItem>
+
+                            <ListGroupItem className='border-0 '>
+                              <FaSquare className='text-starBurst' /> &nbsp; Must not be a smoker
                             </ListGroupItem>
 
                           </ListGroup>

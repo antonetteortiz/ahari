@@ -17,7 +17,7 @@ import { Button, Col, Collapse, Container,
 import moment from 'moment';
 import classnames from 'classnames';
 import ScrollableSection, { ScrollableLink } from 'react-scrollable-url';
-
+import logo from '../../images/ahariWebLogo.png';
 
 class NavTabs extends Component {
 
@@ -33,23 +33,23 @@ class NavTabs extends Component {
                   <div className='d-flex justify-content-center'>
                   <a href='/' style={{textDecoration: 'none'}}>
                       <h3 className="masthead-brand text-blush">
-                        <span>Ahari</span>
+                          <img src={logo} altText='Ahari' />
                       </h3>
                   </a>
                       <Button color='link' className={classnames('nav-link', {active: section == 'mission'})}>
                         <ScrollableLink href='#why'>
-                          <span>why work with us</span>
+                            <h5 className='text-green'>why work with us</h5>
                         </ScrollableLink>
                       </Button>
                       <Button color='link' className={classnames('nav-link', {active: section == 'be'})}>
                         <ScrollableLink href='#requirements'>
-                          <span>requirements</span>
+                          <h5 className='text-green'>requirements</h5>
                         </ScrollableLink>
                       </Button>
 
                       <Button color='link' className={classnames('nav-link', {active: section == 'find'})}>
                         <ScrollableLink href='#application'>
-                          <span>apply to be a nanny</span>
+                          <h5 className='text-green'>apply to be a nanny</h5>
                         </ScrollableLink>
                       </Button>
 
