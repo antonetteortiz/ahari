@@ -43,13 +43,13 @@ class NavTabs extends Component {
                       </Button>
                       <Button color='link' className={classnames('nav-link', {active: section == 'be'})}>
                         <ScrollableLink href='#requirements'>
-                          <h5 className='text-green'>requirements</h5>
+                          <h5 className='text-green'>fees</h5>
                         </ScrollableLink>
                       </Button>
 
                       <Button color='link' className={classnames('nav-link', {active: section == 'find'})}>
                         <ScrollableLink href='#application'>
-                          <h5 className='text-green'>apply to be a nanny</h5>
+                          <h5 className='text-green'>placement application</h5>
                         </ScrollableLink>
                       </Button>
 

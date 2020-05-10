@@ -76,7 +76,7 @@ export default class FindANannyPage extends Component {
 
       <Jumbotron className='p-0 bg-white'>
 
-              <ScrollableSection hash={'#requirements'} title="Requirements" exact>
+              <ScrollableSection hash={'#fees'} title="Fees" exact>
               <span>
 
                 <Row className='align-items-center'>
@@ -85,7 +85,7 @@ export default class FindANannyPage extends Component {
                   </Col>
                   <Col className='d-flex justify-content-end'>
                         <Card className='border-0 pt-5 pb-5'>
-                        <h1 className='text-terracotta'>Requirements</h1>
+                        <h1 className='text-terracotta'>Fees</h1>
                         <h3 className='text-plum'>Application Fee</h3>
                             <p className='lead'>
                                 There is a $250 application fee to begin the process for any placement, this amount is deducted from the total nanny placement fee when you hire your nanny. This is a non-refundable fee that is used to cover the cost incurred in screening and recruiting.

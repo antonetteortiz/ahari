@@ -146,7 +146,7 @@ export default class FindANannyForm extends Component {
               className='border-0 p-5'
               color='ahariGreyn'
           >
-            <h3 className='text-green'>Placement</h3>
+            <h3 className='text-green'>Placement Application</h3>
             <p>Thank you for taking the first step in finding the perfect nanny for your family. Please take a minute to answer a couple quick questions and schedule a consultation with our team!</p>
 
               { sent ? sentAlert : null }
