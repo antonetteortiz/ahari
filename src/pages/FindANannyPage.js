@@ -56,7 +56,7 @@ export default class FindANannyPage extends Component {
         <ScrollableSection hash={'#why'} title="Why Work With Us?" exact>
             <span>
 
-              <Row className=''>
+              <Row className='align-items-center'>
                 <Col className='d-flex justify-content-start'>
                       <Card className='border-0 p-5'>
                         <CardBody>
@@ -79,54 +79,53 @@ export default class FindANannyPage extends Component {
               <ScrollableSection hash={'#requirements'} title="Requirements" exact>
               <span>
 
-                <Row className=''>
+                <Row className='align-items-center'>
                   <Col className='d-flex justify-content-start'>
                   <img className='img-fluid' src={pic1} />
                   </Col>
                   <Col className='d-flex justify-content-end'>
                         <Card className='border-0 pt-5 pb-5'>
+                        <h1 className='text-terracotta'>Requirements</h1>
+                        <h3 className='text-plum'>Application Fee</h3>
+                            <p className='lead'>
+                                There is a $250 application fee to begin the process for any placement, this amount is deducted from the total nanny placement fee when you hire your nanny. This is a non-refundable fee that is used to cover the cost incurred in screening and recruiting.
+                            </p>
+
+                            <h4 className='text-plum'>Placement Fee</h4>
+                            <p className='lead'>
+                                Once you have found a nanny, a placement fee of 15% of the employee’s total gross annual compensation package ($2,500 minimum) will be charged.
+                                The following benefits are included as a part of the placement fee:
+                            </p>
+
                           <ListGroup className='border-0 '>
                             <ListGroupItem className='border-0 '>
-                                <FaSquare className='text-plum'/> &nbsp; Must genuinely love working with children
+                                <FaSquare className='text-plum'/> &nbsp; 60-Day Replacement Policy
                             </ListGroupItem>
                             <ListGroupItem className='border-0 '>
-                                <FaSquare className='text-plum' /> &nbsp; Must have spent at least 3 years providing professional childcare services (2 of which must have been spent working for a private home as a nanny)
+                                <FaSquare className='text-plum' /> &nbsp; Enhanced Security Background Investigation
                             </ListGroupItem>
                             <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Stellar references
+                              <FaSquare className='text-plum' /> &nbsp; Criminal History Search Including All Locations Lived in During the Past 7 Years
                             </ListGroupItem>
                             <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must be able to commit to a family for one year
+                              <FaSquare className='text-plum' /> &nbsp; Auxiliary National Criminal Search Including Records for the Past 7 years
                             </ListGroupItem>
 
                             <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must reside in New York City
+                              <FaSquare className='text-plum' /> &nbsp; Global Terrorist Search
                             </ListGroupItem>
                             <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must possess a High School Diploma or College degree, (preferably with child/psychology-related coursework)
+                              <FaSquare className='text-plum' /> &nbsp; Social Security Number Trace
                             </ListGroupItem>
                             <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must be legally qualified to work and reside in the U.S.
+                              <FaSquare className='text-plum' /> &nbsp; Motor Vehicle Report
                             </ListGroupItem>
                             <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must have sound knowledge of the English Language
+                              <FaSquare className='text-plum' /> &nbsp; Verification of CPR Certification
                             </ListGroupItem>
                             <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; No criminal record
+                              <FaSquare className='text-plum' /> &nbsp; Professionally Drafted Employment Agreement Personally Tailored to Your Household
                             </ListGroupItem>
-                            <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must have first aid and CPR certification (or be willing to get the certification from your own pocket)
-                            </ListGroupItem>
-
-
-                            <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must be ready to be employed legally and paid through a payroll service
-                            </ListGroupItem>
-
-                            <ListGroupItem className='border-0 '>
-                              <FaSquare className='text-plum' /> &nbsp; Must not be a smoker
-                            </ListGroupItem>
-
                           </ListGroup>
                         </Card>
                   </Col>

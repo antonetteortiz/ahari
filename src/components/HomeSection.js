@@ -44,18 +44,21 @@ class HomeSection extends Component {
     const items = [
         {
           src: pic1,
-          altText: 'Slide 1',
-          caption: 'Slide 1'
+          altText: '',
+          caption: '​​Your baby in safe hands.',
+          className: 'text-white'
         },
         {
           src: pic2,
-          altText: 'Slide 2',
-          caption: 'Slide 2'
+          altText: '',
+          caption: `​​We look after your most precious treasures!`,
+          className: 'text-white'
         },
         {
           src: pic3,
-          altText: 'Slide 3',
-          caption: 'Slide 3'
+          altText: '',
+          caption: `Happy baby, Carefree parents.`,
+          className: 'text-white'
         }
       ];
 
@@ -68,7 +71,10 @@ class HomeSection extends Component {
            key={item.src}
          >
            <img src={item.src} alt={item.altText} />
-           <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+           <CarouselCaption
+                className={item.className}
+                captionHeader={item.caption}
+            />
          </CarouselItem>
        );
      });
