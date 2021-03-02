@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
-class VisionSection extends Component {
 
+function VisionSection() {
 
-  render() {
     return (
 
       <main role="main" className="inner cover">
@@ -14,7 +13,6 @@ class VisionSection extends Component {
       </main>
 
     );
-  }
 }
 
 
