@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 
-class VisionSection extends Component {
+fuction VisionSection(){
 
-
-  render() {
-    const section = 'home';
     return (
 
       <main role="main" className="inner cover">
@@ -15,7 +12,6 @@ class VisionSection extends Component {
       </main>
 
     );
-  }
 }
 
 
