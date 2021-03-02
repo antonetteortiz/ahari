@@ -28,8 +28,7 @@ const [message, setMessage] = useState('')
   //     message: ''
   //   }
 
-    // this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit      = this.handleSubmit.bind(this);
+    this.handleSubmit     = this.handleSubmit.bind(this);
   
 
   componentWillMount(){
@@ -103,7 +102,7 @@ const [message, setMessage] = useState('')
                     <Input
                            type="text" name="name" id="exampleEmail"
                            placeholder="please provide your name"
-                           onChange= e => {setName(e.target.value)};
+                           onChange= {e => setName(e.target.value)}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -112,7 +111,7 @@ const [message, setMessage] = useState('')
                         type="email"
                         name="email" id="exampleEmail"
                         placeholder="please provide your email address"
-                        onChange={this.handleInputChange}
+                        onChange={e => setEmail(e.target.value)}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -120,7 +119,7 @@ const [message, setMessage] = useState('')
                     <Input
                         type="phone" name="phone" id="exampleEmail"
                         placeholder="please provide your phone number"
-                        onChange={this.handleInputChange}
+                        onChange={e => setPhone(e.target.value)}
                     />
                   </FormGroup>
 
@@ -129,7 +128,7 @@ const [message, setMessage] = useState('')
                     <Input
                           type="textarea" name="message" id="exampleEmail"
                           placeholder="how can we help?"
-                          onChange={this.handleInputChange}
+                          onChange={e => setMessage(e.target.value)}
                     />
                   </FormGroup>
                   <FormGroup>
