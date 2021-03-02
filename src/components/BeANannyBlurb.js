@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import {
   Alert,
   Button,
@@ -12,13 +12,11 @@ import {
 
 //  import beAnannyPic from "../images/mother-children-playing-building-blocks-bedroom-93540028.jpg";
 import beAnannyPic from "../images/ahari6.jpg";
+import { useHistory } from "react-router-dom";
 
-class BeANannyBlurb extends Component {
-  static contextTypes = {
-    router: PropTypes.object,
-  };
 
-  render() {
+  function BeANannyBlurb(){
+    const history = useHistory()
     return (
       <Card id="beANanny">
         <CardImg top width="100%" src={beAnannyPic} alt="Card image cap" />
@@ -28,13 +26,13 @@ class BeANannyBlurb extends Component {
           </CardText>
         </CardBody>
         <CardFooter className="bg-white border-0">
-          <Button color="teal" onClick={() => this.context.router.push(`/be`)}>
+        {/* history.push */}
+          <Button color="teal" onClick={() => history.push(`/be`)}>
             Be a Nanny
           </Button>
         </CardFooter>
       </Card>
     );
-  }
 }
 
 export default BeANannyBlurb;
