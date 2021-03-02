@@ -4,23 +4,33 @@ import {
 } from 'reactstrap';
 
 import socket from "../server";
+import { useHistory } from "react-router-dom";
 
-class ContactUsSection extends Component {
-  constructor(){
-    super();
-    this.state = {
-      sending: false,
-      sent: false,
-      error: null,
-      name: '',
-      email: '',
-      phone: '',
-      message: ''
-    }
+function ContactUsSection () {
+const [sending, setSending] = useState(false);
+const [sent, setSent] = useState(false);
+const [error, setError] = useState(null);
+const [name, setName] = useState('')
+const [email, setEmail] = useState('')
+const [phone, setPhone] = useState('')
+const [message, setMessage] = useState('')
 
-    this.handleInputChange = this.handleInputChange.bind(this);
+
+  // constructor(){
+  //   super();
+  //   this.state = {
+  //     sending: false,
+  //     sent: false,
+  //     error: null,
+  //     name: '',
+  //     email: '',
+  //     phone: '',
+  //     message: ''
+  //   }
+
+    // this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit      = this.handleSubmit.bind(this);
-  }
+  
 
   componentWillMount(){
     socket.on('contact us message sent', () => {
@@ -93,7 +103,7 @@ class ContactUsSection extends Component {
                     <Input
                            type="text" name="name" id="exampleEmail"
                            placeholder="please provide your name"
-                           onChange={this.handleInputChange}
+                           onChange= e => {setName(e.target.value)};
                     />
                   </FormGroup>
                   <FormGroup>
