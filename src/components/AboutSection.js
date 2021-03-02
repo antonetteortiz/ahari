@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-function VisionSectio() {
+function VisionSection() {
 
 
   // render() {
