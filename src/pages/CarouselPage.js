@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import "../styles/carousel.css";
 
-class FeaturesPage extends Component {
-  render() {
+  
+ function FeaturesPage() {
 
     return (
 
@@ -163,7 +163,6 @@ class FeaturesPage extends Component {
       </Container>
 
     );
-  }
 }
 
 
