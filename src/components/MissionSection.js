@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
-class MissionSection extends Component {
+function MissionSection() {
 
-
-  render() {
     return (
 
       <main role="main" className="inner cover">
@@ -14,7 +12,7 @@ class MissionSection extends Component {
       </main>
 
     );
-  }
+  
 }
 
 
